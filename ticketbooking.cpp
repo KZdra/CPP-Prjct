@@ -34,16 +34,30 @@ void cekTicketYangMasihAda(Ticket tickets[], int jumlahTicket) {
     for (int i = 0; i < jumlahTicket; i++) {
         if (!tickets[i].diBooking) {
             cout << tickets[i].id << "\t" << tickets[i].nama << "\tSIAP DI BOOKING\n";
-        }
+        } 
     }
 };
 
 // Fungsi untuk booking tiket
 void bookTicket(Ticket tickets[], int jumlahTicket) {
 	
+	// Cek apakah masih ada tiket yang tersedia
+    bool tiketTersedia = false;
+    for (int i = 0; i < jumlahTicket; i++) {
+        if (!tickets[i].diBooking) {
+            tiketTersedia = true;
+            break;
+        }
+    }
+    
+    if (!tiketTersedia) {
+        cout << "MAAF TICKET ABIS KAK!....\n";
+        return;
+    }
     int ticketId;
     string namaPembeli;
 
+		
     cout << "\nMasukkan ID tiket yang ingin dipesan: ";
     cin >> ticketId;
 
@@ -62,6 +76,7 @@ void bookTicket(Ticket tickets[], int jumlahTicket) {
     tickets[ticketId - 1].BookingOleh = namaPembeli;
 
     cout << "Tiket berhasil dipesan oleh " << namaPembeli << "!\n";
+	
 };
 // cek daftar pesanan
 void tampilkan(Ticket tickets[], int jumlahTicket) {
@@ -88,6 +103,7 @@ int main(){
     // init console begin
 	inisialisasi_Console();
 	int pilihan;
+	
     do {
 		cout << "\n********  Silahkan Pilih Menunya!  ********\n\n";
         cout << "1. Lihat tiket yang tersedia\n";
@@ -119,19 +135,9 @@ int main(){
 
         };
     } while (pilihan != 4);
-    	system("cls");
-      cout << "===================================================\n";
-				cout << "===================================================\n";
-				cout << "  ____  ____  ____ ___  _    _____  _ ___  _\n";
-    			cout << " /  __\\/  _ \\/  _ \\\\  \\//   /__ __\\/ \\\\  \\//\n";
-			    cout << " | | //| / \\|| / \\| \\  /_____ / \\  | | \\  / \n";
-			    cout << " | |_\\\\| \\_/|| \\_/| /  \\\\____\\| |  | | /  \\ \n";
-			    cout << " \\____/\\____/\\____//__/\\\\     \\_/  \\_//__/\\\\\n";
-			    cout << "                                             \n";
-			    cout << "================ Created By =======================\n";
-			    cout << "================ Kelompok 3 =======================\n\n";
-			    cout << "TERIMAKASIH SUDAH MENGGUNAKAN APLIKASI INI! <3";
+    system("cls");
+   	inisialisasi_Console();
+	cout << "\nTERIMAKASIH SUDAH MENGGUNAKAN APLIKASI INI! <3";
     
 
 }
-
