@@ -1,7 +1,5 @@
 #include<iostream>
-#include<string> 
-#include <sstream>
-#include <vector>
+#include <sstream> // untuk stringstream di function format ke rupiah
 using namespace std;
 // Bagian Inisialisasi Dan Fungsi Fungsi  
 
@@ -162,4 +160,3 @@ int main(){
     
 
 }
-
