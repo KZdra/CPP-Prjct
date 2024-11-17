@@ -39,7 +39,7 @@ string formatKeRupiah(int angka, string perantara = ".") {
   inspost -= 3;
  }
  
- output = "Rp " + output;
+ output = "Rp. " + output;
  
  return output;
 } 
@@ -102,7 +102,7 @@ void beliMotor(Motor listMotor[], int jumlahMotor) {
     cout << "MOTOR BERHASIL DIBELI OLEH " << namaPembeli << "\n";
     cout << "===============Invoice==================\n";
     cout << "Nama Motor\tHarga Motor\tJumlah\n";
-    cout << listMotor[motorId - 1].namaMotor <<"\t"<< listMotor[motorId - 1].harga <<"\t"<< jumlah <<"\n";
+    cout << listMotor[motorId - 1].namaMotor <<"\t"<< formatKeRupiah(listMotor[motorId - 1].harga) <<"\t"<< jumlah <<"\n\n";
 	cout << "Total Harga: " << formatKeRupiah(totalHarga);
 	cout << "\n========================================";
 
@@ -137,6 +137,13 @@ int main(){
 
         cout << "Pilih menu: ";
         cin >> pilihan;
+        
+        // kalo cin nya diisi selain int GWEH BILEK : RETURN 0
+        
+    	if (cin.fail()) {
+    	cout << "Maaf menu nya integer bukan string mas/mbak :(  silahkan run lagi Aplikasinya :D";
+    	return 0;	
+		}
 
         switch (pilihan) {
             case 1:
